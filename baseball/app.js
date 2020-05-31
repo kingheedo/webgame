@@ -7,10 +7,10 @@ var diffNum = 0;
 function genNumber(){
     numCan = [1,2,3,4,5,6,7,8,9];
 
-    // 위 numCan에서 숫자를 4개를 랜덤하게 뽑을것이다 그렇니까 반복문을 사용한다.
+    // 위 numCan에서 숫자를 4개를 랜덤하게 뽑을것이다 
     numArray = [];
 
-    for(var i =0; i < 4; i++){
+    for(var i = 0; i < 4; i++){
         var select = numCan.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
         numArray.push(select);
     }
@@ -22,6 +22,7 @@ function genNumber(){
     // unshift : 처음에 추가 
     // push: 마지막에 추가 
 }
+
 genNumber();
 console.log(numArray);
 
@@ -34,7 +35,6 @@ document.body.appendChild(form);
 
 var input = document.createElement("input");
 input.type ="number";
-input.maxLength = 4;
 form.appendChild(input);
 
 var button = document.createElement("button");
@@ -68,7 +68,7 @@ form.addEventListener("submit", function 콜백함수(e){ //엔터를 쳤을 때
             genNumber();
             diffNum = 0;
         } else{ // 4번 미만으로 틀린경우 '
-            for(var i = 0; i < 3; i++){
+            for(var i = 0; i < 4; i++){
                 if(Number(answerArray[i]) === numArray[i]){ //같은자리인지 확인
                     strike ++;
                 }else if(numArray.indexOf(Number(answerArray[i])) > -1){ //같은 자는 아니지만 숫자가 겹치는지 확인
