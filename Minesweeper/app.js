@@ -75,15 +75,26 @@ execButton.addEventListener("click", function(){
                 if(dataset[줄][칸] === 'X'){
                     e.currentTarget.textContent = "펑!"
                 }else {
-                    console.log([
-                    dataset[줄-1][칸-1], dataset[줄-1][칸], dataset[줄-1][칸+1],
+                    var 주변 = [
+                
                     dataset[줄][칸-1],                       dataset[줄][칸+1],
                     dataset[줄+1][칸-1], dataset[줄+1][칸], dataset[줄+1][칸+1]
-                    ].filter(function(v){
+                    ];
+
+                    if(dataset[줄-1]){
+                        주변.concat([dataset[줄-1][칸-1], dataset[줄-1][칸], dataset[줄-1][칸+1]])
+                        //concat은 배열과 배열을 합쳐서 새로운 배열을 만듬.
+                    }
+                    if (dataset[줄]){
+                        주변.concat()
+                    }
+                    if (dataset[줄]){
+
+                    }
+                    e.currentTarget.textContent = 주변.filter(function(v){
                        return v === 'X';
-                    }));
+                    }).length;
                
-                e.currentTarget.textContent = ''; //숫자
             }
             });
             tr.appendChild(td);
