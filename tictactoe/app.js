@@ -83,15 +83,19 @@ var 비동기콜백 = function (e) { //칸을 클릭했을때
   console.log("몇칸", selectTd);
 
   if (tdArray[selectTr][selectTd].textContent !== "") {
+
     //칸이 이미 채워져있는가?
     console.log("빈칸이 아닙니다.");
+
   } else {
+
     //빈칸이면
     console.log("빈칸 입니다.");
     tdArray[selectTr][selectTd].textContent = turn;
-    var allTrue = resultConfirm(selectTr, selectTd);
 
     //모든 칸이 다찼는지 검사
+    var allTrue = resultConfirm(selectTr, selectTd);
+
     var computerArray = [];
     tdArray.forEach(function (tr) {
       tr.forEach(function (td) {
@@ -101,12 +105,13 @@ var 비동기콜백 = function (e) { //칸을 클릭했을때
     computerArray = computerArray.filter(function (td) {
       return !td.textContent
     });
+
     //다찼으면
     if (allTrue) {
       reset();
     } else if (computerArray.length === 0) {
       reset(true);
-    } //칸을 더이상 선택 할 수 가 없음
+    } //칸을 더이상 선택 할 수  가 없음
     else { //다 안찼으면
       if (turn === "X") {
         turn = "O";
@@ -117,7 +122,6 @@ var 비동기콜백 = function (e) { //칸을 클릭했을때
         console.log("컴퓨터의 턴입니다.");
         //빈 칸 중 하나를 고른다.
         var selectComputer = computerArray[Math.floor(Math.random() * computerArray.length)]; // '', 0 , NAN, undefined, null, false
-
         selectComputer.textContent = turn;
 
         //컴퓨터가 승리했는지 체크
