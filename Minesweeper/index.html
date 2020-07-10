@@ -11,10 +11,23 @@
         }
 
         td {
-            border: 1px solid black;
+            border: 1px solid gray;
             text-align: center;
             width: 25px;
             height: 25px;
+            background: #444;
+        }
+
+        td.opened {
+            background: white;
+        }
+
+        td.flag {
+            background: red;
+        }
+
+        td.question {
+            background: orange;
         }
     </style>
 </head>
@@ -32,6 +45,7 @@
         </thead>
         <tbody></tbody>
     </table>
+    <div id="result"></div>
     <script src="./app2.js"></script>
 </body>
 

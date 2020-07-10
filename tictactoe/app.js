@@ -43,7 +43,6 @@ function resultConfirm(selectTr, selectTd) {
     tdArray[2][0].textContent === turn
   ) {
     allTrue = true;
-
   }
   return allTrue;
 }
@@ -51,25 +50,25 @@ function resultConfirm(selectTr, selectTd) {
 function reset(draw) {
   setTimeout(function () {
     //초기화
-    result.textContent = '';
+    result.textContent = "";
     tdArray.forEach(function (tr) {
       tr.forEach(function (td) {
-        td.textContent = '';
+        td.textContent = "";
       });
     });
     turn = "X";
   }, 1000);
   if (draw) {
-    result.textContent = '무승부';
+    result.textContent = "무승부";
   } else {
     result.textContent = turn + "님이 승리!";
   }
-
 }
 
-
-var 비동기콜백 = function (e) { //칸을 클릭했을때
-  if (turn === 'O') { // 컴퓨터의 턴 일떄 내가 클릭하지 않도록
+var 비동기콜백 = function (e) {
+  //칸을 클릭했을때
+  if (turn === "O") {
+    // 컴퓨터의 턴 일떄 내가 클릭하지 않도록
     return;
   }
   // console.log(e.target); //칸들
@@ -83,12 +82,9 @@ var 비동기콜백 = function (e) { //칸을 클릭했을때
   console.log("몇칸", selectTd);
 
   if (tdArray[selectTr][selectTd].textContent !== "") {
-
     //칸이 이미 채워져있는가?
     console.log("빈칸이 아닙니다.");
-
   } else {
-
     //빈칸이면
     console.log("빈칸 입니다.");
     tdArray[selectTr][selectTd].textContent = turn;
@@ -103,7 +99,7 @@ var 비동기콜백 = function (e) { //칸을 클릭했을때
       });
     });
     computerArray = computerArray.filter(function (td) {
-      return !td.textContent
+      return !td.textContent;
     });
 
     //다찼으면
@@ -112,7 +108,8 @@ var 비동기콜백 = function (e) { //칸을 클릭했을때
     } else if (computerArray.length === 0) {
       reset(true);
     } //칸을 더이상 선택 할 수  가 없음
-    else { //다 안찼으면
+    else {
+      //다 안찼으면
       if (turn === "X") {
         turn = "O";
       }
@@ -121,7 +118,8 @@ var 비동기콜백 = function (e) { //칸을 클릭했을때
       setTimeout(function () {
         console.log("컴퓨터의 턴입니다.");
         //빈 칸 중 하나를 고른다.
-        var selectComputer = computerArray[Math.floor(Math.random() * computerArray.length)]; // '', 0 , NAN, undefined, null, false
+        var selectComputer =
+          computerArray[Math.floor(Math.random() * computerArray.length)]; // '', 0 , NAN, undefined, null, false
         selectComputer.textContent = turn;
 
         //컴퓨터가 승리했는지 체크
@@ -130,17 +128,17 @@ var 비동기콜백 = function (e) { //칸을 클릭했을때
         var allTrue = resultConfirm(selectTr, selectTd);
 
         //다 찼으면
-        if (allTrue) { //컴퓨터가 이겼을 경우
+        if (allTrue) {
+          //컴퓨터가 이겼을 경우
           reset();
         }
 
         //턴을 나한테 넘긴다.
-        turn = 'X';
+        turn = "X";
       }, 1000);
     }
   }
 };
-
 
 for (var i = 0; i < 3; i++) {
   var tr = document.createElement("tr");

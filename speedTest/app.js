@@ -30,7 +30,7 @@ var 타임아웃;
         console.log((끝시간 - 시작시간) / 1000);
         기록.push(끝시간 - 시작시간);
         시작시간 = null;
-        끝시간 = null
+        끝시간 = null;
         스크린.classList.remove('now');
         스크린.classList.add('waiting');
         스크린.textContent = '클릭해서 시작하세요.';
