@@ -26,6 +26,7 @@
 
 .card-back {
     background: darkcyan;
+    transform: rotateY(180deg);
 }
 
 
