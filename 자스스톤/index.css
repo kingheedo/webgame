@@ -16,6 +16,7 @@
     display: inline-block;
     vertical-align: top;
     width: 200px;
+    background: silver;
 }
 
 #rival-deck,
@@ -80,6 +81,25 @@
     text-align: center;
     font-size: 14px;
 }
-.card-hidden{
+
+.card-hidden {
     display: none;
+}
+
+.card-selected {
+    border: 2px solid red;
+}
+
+.card-turnover {
+    background: gray;
+}
+
+#turn-btn {
+    float: right;
+    position: relative;
+    top: -23px;
+}
+
+.turn {
+    border: 1px solid black;
 }
