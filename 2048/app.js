@@ -48,3 +48,24 @@ function 그리기() {
 초기화();
 랜덤생성();
 그리기();
+
+var 드래그시작 = false;
+var 시작좌표;
+var 끝좌표;
+window.addEventListener('mousedown',function(이벤트){ //마우스누를때
+  console.log('mousedown', 이벤트);
+ 드래그시작 = true;
+ 시작좌표 =  [이벤트.clientX, 이벤트.clientY]
+});
+window.addEventListener('mousemove',function(이벤트){//마우스 움직일때
+  if(드래그시작){
+  console.log('mousemove', 이벤트)
+}
+});
+window.addEventListener('mouseup',function(이벤트){//마우스땔때
+  console.log('mouseup', 이벤트)
+ 드래그시작 = false;
+ 끝좌표 = [[이벤트.clientX, 이벤트.clientY]
+
+
+});
