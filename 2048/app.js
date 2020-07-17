@@ -50,22 +50,40 @@ function 그리기() {
 그리기();
 
 var 드래그시작 = false;
+var 드래그중 = false;
 var 시작좌표;
 var 끝좌표;
 window.addEventListener('mousedown',function(이벤트){ //마우스누를때
   console.log('mousedown', 이벤트);
  드래그시작 = true;
- 시작좌표 =  [이벤트.clientX, 이벤트.clientY]
+ 시작좌표 =  [이벤트.clientX, 이벤트.clientY];
+
 });
 window.addEventListener('mousemove',function(이벤트){//마우스 움직일때
   if(드래그시작){
-  console.log('mousemove', 이벤트)
+  console.log('mousemove', 이벤트);
+드래그중 = true;
+
 }
 });
 window.addEventListener('mouseup',function(이벤트){//마우스땔때
-  console.log('mouseup', 이벤트)
+  console.log('mouseup', 이벤트);
  드래그시작 = false;
- 끝좌표 = [[이벤트.clientX, 이벤트.clientY]
-
-
+ 끝좌표 = [이벤트.clientX, 이벤트.clientY];
+ 
+ if(드래그중){
+var x차이 = 끝좌표[0]- 시작좌표[0];
+var y차이 = 끝좌표[1]- 시작좌표[1];
+if(x차이 < 0 && Math.abs(x차이) / Math.abs(y차이) > 1){
+  방향 = '왼쪽';
+}else if(x차이 > 0 && Math.abs(x차이) / Math.abs(y차이) > 1){
+ 방향 = '오른쪽';
+}else if(y차이 > 0 && Math.abs(x차이) / Math.abs(y차이) < 1){
+ 방향 = '아래';
+  
+}else if(y차이 < 0 && Math.abs(x차이) / Math.abs(y차이) < 1){
+  방향 = '위';
+}
+console.log(x차이, y차이,방향);
+}
 });
